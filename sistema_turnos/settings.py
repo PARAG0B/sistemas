@@ -7,11 +7,7 @@ SECRET_KEY = cambia-esta-clave-por-una-segura
 
 DEBUG = True
 
-ALLOWED_HOSTS = [
-    "localhost",
-    "127.0.0.1",
-    "sistem-grfua5exh2f7dzdg.canadacentral-01.azurewebsites.net",
-]
+ALLOWED_HOSTS = ["*"]
 
 
 
