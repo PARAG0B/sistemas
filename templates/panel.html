@@ -1,0 +1,53 @@
+{% extends "base.html" %}
+{% block title %}Panel de Administración{% endblock %}
+
+{% block content %}
+<h3 class="mb-3">Panel de Administración - Turnos del Día</h3>
+
+<div class="mb-3 d-flex gap-2">
+  <a href="{% url 'crear_turno' %}" class="btn btn-primary btn-sm">Crear</a>
+  <a href="{% url 'solicitar_turno' %}" class="btn btn-outline-secondary btn-sm">
+    Vista cliente (Solicitar turno)
+  </a>
+</div>
+
+<table class="table table-sm table-striped align-middle">
+  <thead class="table-primary">
+    <tr>
+      <th>N° de Turno</th>
+      <th>Nombre</th>
+      <th>Estado</th>
+      <th>Teléfono</th>
+      <th>Acciones</th>
+    </tr>
+  </thead>
+  <tbody>
+    {% for t in turnos %}
+    <tr>
+      <td>{{ t.numero }}</td>
+      <td>{{ t.nombre }}</td>
+      <td>
+        {% if t.estado == "EN_ESPERA" %}En espera
+        {% elif t.estado == "LLAMADO" %}Llamado
+        {% else %}Atendido{% endif %}
+      </td>
+      <td>{{ t.telefono }}</td>
+      <td class="d-flex flex-wrap gap-1">
+        <a href="{% url 'llamar_turno' t.id %}" class="btn btn-sm btn-info">Llamar</a>
+        <a href="{% url 'marcar_atendido' t.id %}" class="btn btn-sm btn-success">Marcar atendido</a>
+        <a href="{% url 'editar_turno' t.id %}" class="btn btn-sm btn-warning">Editar</a>
+        <a href="{% url 'eliminar_turno' t.id %}" class="btn btn-sm btn-danger">Eliminar</a>
+      </td>
+    </tr>
+    {% empty %}
+    <tr>
+      <td colspan="5" class="text-center">No hay turnos registrados.</td>
+    </tr>
+    {% endfor %}
+  </tbody>
+</table>
+
+<p class="mt-3">
+  Clientes atendidos: {{ atendidos }}
+</p>
+{% endblock %}

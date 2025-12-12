@@ -1,0 +1,8 @@
+/* Estilos opcionales extra */
+body {
+  background-color: #f5f7fb;
+}
+
+.card {
+  border-radius: 12px;
+}

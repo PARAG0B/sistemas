@@ -1,0 +1,46 @@
+{% extends "base.html" %}
+{% load static %}
+{% block title %}Login Administrador{% endblock %}
+
+{% block content %}
+<div class="row justify-content-center">
+  <div class="col-md-4">
+    <div class="card shadow-sm">
+      <div class="card-body p-4">
+        <div class="text-center mb-3">
+          <div class="rounded-circle bg-primary text-white d-inline-flex align-items-center justify-content-center"
+               style="width:48px;height:48px;font-size:24px;">
+            A
+          </div>
+        </div>
+        <h4 class="text-center mb-3">Iniciar Sesión Administrador</h4>
+
+        {% if error %}
+          <div class="alert alert-danger py-2">{{ error }}</div>
+        {% endif %}
+
+        <form method="post">
+          {% csrf_token %}
+          <div class="mb-3">
+            <label class="form-label">Usuario</label>
+            <input type="text" name="username" class="form-control" required>
+          </div>
+          <div class="mb-3">
+            <label class="form-label">Contraseña</label>
+            <input type="password" name="password" class="form-control" required>
+          </div>
+          <button class="btn btn-primary w-100">Ingresar</button>
+        </form>
+
+        <p class="text-center mt-3 mb-0" style="font-size:13px;">
+          Sistema de Gestión de Turnos Inteligente
+        </p>
+
+        <p class="text-center mt-2 mb-0">
+          ¿No tienes cuenta? <a href="{% url 'register' %}">Registrarse</a>
+        </p>
+      </div>
+    </div>
+  </div>
+</div>
+{% endblock %}
