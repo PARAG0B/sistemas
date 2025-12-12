@@ -3,11 +3,16 @@ import os
 
 BASE_DIR = Path(__file__).resolve().parent.parent
 
-SECRET_KEY = "cambia-esta-clave-por-una-segura"
+SECRET_KEY = cambia-esta-clave-por-una-segura
 
 DEBUG = True
 
-ALLOWED_HOSTS: list[str] = []
+ALLOWED_HOSTS = [
+    "localhost",
+    "127.0.0.1",
+    "sistem-grfua5exh2f7dzdg.canadacentral-01.azurewebsites.net",
+]
+
 
 
 INSTALLED_APPS = [
@@ -89,6 +94,7 @@ STATICFILES_DIRS = [
 ]
 
 STATIC_ROOT = BASE_DIR / "staticfiles"
+
 
 STATICFILES_STORAGE = "whitenoise.storage.CompressedManifestStaticFilesStorage"
 
