@@ -10,6 +10,9 @@ DEBUG = True
 
 ALLOWED_HOSTS = ["*"]
 
+CSRF_TRUSTED_ORIGINS = [
+    "https://sistem-grfua5exh2f7dzdg.canadacentral-01.azurewebsites.net",
+]
 
 
 INSTALLED_APPS = [
