@@ -3,7 +3,8 @@ import os
 
 BASE_DIR = Path(__file__).resolve().parent.parent
 
-SECRET_KEY = cambia-esta-clave-por-una-segura
+SECRET_KEY = "django-insecure-7p#e4g7@1+u5$!9x0c3v$*8r1&z0kf&l^m6!d-2@q3s1z"
+
 
 DEBUG = True
 
