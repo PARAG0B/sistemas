@@ -1,26 +1,24 @@
-# settings.py
 from pathlib import Path
 import os
+from dotenv import load_dotenv
 
 BASE_DIR = Path(__file__).resolve().parent.parent
 
-SECRET_KEY = os.getenv(
-    "SECRET_KEY",
-    "django-insecure-7p#e4g7@1+u5$!9x0c3v$*8r1&z0kf&l^m6!d-2@q3s1z",
-)
+load_dotenv(os.path.join(BASE_DIR, ".env"))
 
-DEBUG = True  # o False, como lo tengas
+SECRET_KEY = os.getenv("SECRET_KEY", "dev-secret-unsafe")
+
+DEBUG = False  # o True mientras pruebas, pero en Azure debería ser False
 
 ALLOWED_HOSTS = [
-    "127.0.0.1",
     "localhost",
+    "127.0.0.1",
     "sistem-grfua5exh2f7dzdg.canadacentral-01.azurewebsites.net",
 ]
 
 CSRF_TRUSTED_ORIGINS = [
     "https://sistem-grfua5exh2f7dzdg.canadacentral-01.azurewebsites.net",
-    # opcional, pero útil:
-    "https://*.azurewebsites.net",
+    "http://sistem-grfua5exh2f7dzdg.canadacentral-01.azurewebsites.net",
 ]
 
 
